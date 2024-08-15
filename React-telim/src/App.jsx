@@ -18,16 +18,47 @@ import './App.css'
 // export default App
 
 
-function App() {
-  return < Child name="Ali" age = {25}/>
-}
+// function App() {
+//   return < Child name="Ali" age = {25}/>
+// }
 
-function Child({name,age}) {
+// function Child({name,age}) {
+//   return(
+//     <div>
+//       <p>ad:{name}</p>
+//       <p>age:{age}</p>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// function App() {
+//   const handleClick=()=>alert("Hello world")
+//   return  <Child onClick={handleClick}/>
+// }
+
+
+// function Child({onClick}) {
+//   return <button onClick={onClick}>klikle</button>
+// }
+
+
+// export default App
+
+
+function App(props) {
+  let obj = {
+    name: "ALi",
+    age: 25,
+  };
   return(
-    <div>
-      <p>ad:{name}</p>
-      <p>age:{age}</p>
-    </div>
+    <>
+    <p>Name: {obj.name}</p>
+    <p>yas: {obj.age}</p>
+    </>
   )
 }
 
