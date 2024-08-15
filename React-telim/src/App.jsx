@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Component from './component'
 import './App.css'
 
 // function App() {
@@ -49,17 +50,27 @@ import './App.css'
 // export default App
 
 
-function App(props) {
-  let obj = {
-    name: "ALi",
-    age: 25,
-  };
+// function App(props) {
+//   let obj = {
+//     name: "ALi",
+//     age: 25,
+//   };
+//   return(
+//     <>
+//     <p>Name: {obj.name}</p>
+//     <p>yas: {obj.age}</p>
+//     </>
+//   )
+// }
+
+// export default App
+
+
+function App() {
   return(
-    <>
-    <p>Name: {obj.name}</p>
-    <p>yas: {obj.age}</p>
-    </>
+    <div>
+       <Component productName = "Alma" price ={25}/>
+    </div>
   )
 }
-
 export default App
