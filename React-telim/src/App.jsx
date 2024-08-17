@@ -1,8 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Component from './component'
-import './App.css'
+
 
 // function App() {
 //   return < Child name = "ALi" age={25}/>
@@ -66,10 +62,58 @@ import './App.css'
 // export default App
 
 
+import React, { useState } from 'react';
+
 function App() {
- 
-  return(
-    <Component/>
-  )
+  const [items, setItems] = useState([]);
+  const [newItemName, setNewItemName] = useState('');
+  const [newItemPrice, setNewItemPrice] = useState('');
+
+  const addItem = () => {
+    if (newItemPrice && newItemName) {
+      setItems([...items, { name: newItemName, price: parseFloat(newItemPrice) }]);
+      setNewItemName('');
+      setNewItemPrice('');
+    }
+  };
+
+  const removeItem = (index) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
+
+  const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
+
+  return (
+    <div>
+      <h2>Alış-veriş Səbəti</h2>
+      
+      <div>
+        <input 
+          type="text" 
+          value={newItemName} 
+          onChange={(e) => setNewItemName(e.target.value)}
+          placeholder="Məhsul adı"
+        />
+        <input 
+          type="number" 
+          value={newItemPrice} 
+          onChange={(e) => setNewItemPrice(e.target.value)}
+          placeholder="Qiymət"
+        />
+        <button onClick={addItem}>Əlavə et</button>
+      </div>
+
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            {item.name} - {item.price} AZN
+            <button onClick={() => removeItem(index)}>Sil</button>
+          </li>
+        ))}
+      </ul>
+
+      <p>Ümumi məbləğ: {totalPrice.toFixed(2)} AZN</p>
+    </div>
+  );
 }
 export default App
