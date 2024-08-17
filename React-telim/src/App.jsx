@@ -67,10 +67,9 @@ import './App.css'
 
 
 function App() {
+ 
   return(
-    <div>
-       <Component productName = "Alma" price ={25}/>
-    </div>
+    <Component/>
   )
 }
 export default App

@@ -1,11 +1,13 @@
-function Component(props) {
-    console.log(props);
-    
+import { useState } from "react";
+
+function Component() {
+    const [count, SetCount] = useState(0)
     return(
-        <div>
-            <p>{props.productName}</p>
-            <p>{props.price}</p>
-        </div>
+      <div>
+        <p>say:{count}</p>
+        <button onClick={()=>SetCount(count+1)}>artir</button>
+        <button onClick={()=>SetCount(count-1)}>azalt</button>
+      </div>
     )
 }
 export default Component
